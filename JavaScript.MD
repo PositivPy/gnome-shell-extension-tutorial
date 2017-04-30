@@ -23,14 +23,17 @@ Function parameters can accept default values;
     		return x + y;
 	}
 	
-### if/else/elseif
+### If/else/elseif
 if (x>0) { 
 	print(x) ; 
 } else { 
 	print(“Not a positive number”) };
 
-### For loops
-	for (let i = 0  …....
+### For loops:
+	for (let i = 0; i < 10; i++) {
+		print(i)
+	};.
+	// 0, 1, 2, 3 ... 9
 
 Looping over arrays using for...of is much more convenient.
 
@@ -38,7 +41,8 @@ Looping over arrays using for...of is much more convenient.
 
 	for (let fruit of fruits) {
     		print(fruit);
-	} // apple, orange, banana
+	} 
+	// apple, orange, banana
 
 ### Imports :
 You import objects from the imports object.
@@ -67,3 +71,14 @@ I like the simplicity and readability of the Lang.Class function :
  
         		_init: function() {do something};
 	});
+	
+### Using "this" in closures
+"this" will not be captured in a closure; "this" is relative to how the closure is invoked, not to the value of this where the closure is created, because "this" is a keyword with a value passed in at function invocation time, it is not a variable that can be captured in closures.
+
+---> too complicated, need layman's language. 
+
+To solve this, use Lang.bind() :
+
+	const Lang = imports.lang;
+
+	let closure = Lang.bind( this, this._Foo );
