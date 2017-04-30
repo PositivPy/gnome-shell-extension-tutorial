@@ -11,6 +11,7 @@ If you need to reassign, like in a for loop for example.
  	let z= 2; // Scope restricted, good for loops.  
 
 Variables can also be declared by using matching arrays or objects, what we call in python unpacking :
+
 	let [ a, b, c ] = [ 1, 2, 3 ];
 	let { a, b } = { a: "apple", b: "banana" };
 
