@@ -8,4 +8,5 @@ Each UI containers have a clutter actor and by default, each clutter actors have
 
 We can "connect" each actors to event(s) and than to callback function(s). The callback funciton will be called when the event occurs.
 So, to connect an actor to an event : 
-  actor.connect('eventName', function(){DoSomethingWhenEventOccurs});
+
+    actor.connect('eventName', function(){DoSomethingWhenEventOccurs});
