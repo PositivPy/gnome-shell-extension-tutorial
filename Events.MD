@@ -1,4 +1,4 @@
-# Events 
+# Connecting Actors to Events 
 Each UI containers have a clutter actor and by default, each clutter actors have these events:
 - button-press-event: Emitted when the user presses the mouse over the actor.
 - button-release-event: Emitted when the user releases the mouse over the actor.
