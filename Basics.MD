@@ -15,7 +15,7 @@ In this case "helloWorld@email.com" and press enter.
 
 A "Hello World" example should appear in your IDE, gedit or your Browser if all else fails.
 
-## Enabeling your extension :
+## Enabling your extension :
 Open the gnome-tweak-tool and enable your extension in the extensions tab.
 You should now have a new icon in your top bar, click on it and a massive "Hello World" should appear.
 
