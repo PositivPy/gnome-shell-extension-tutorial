@@ -29,11 +29,12 @@ There are 3 files in this folder :
 - stylesheet.css : CSS to style your UI components.
 
 ## Anatomy of extension.js :
+-Imports :
 
-- Imports :
 	const St = imports.gi.St;  
 
-- Your actual extension / Class Inheritance :
+-Your actual extension / Class Inheritance :
+
 	const Lang = imports.lang
 
 	const New_Class = new Lang.Class({
@@ -43,7 +44,8 @@ There are 3 files in this folder :
         		_init: function() {do something};
 	});
 
-- Your extension HAS to have the following three function to work : 
-	function init(){};   // Not very useful, this is where you initialize settings for example. 
+-Your extension HAS to have the following three function to work : 
+
+	function init(){};   // Don't do anything major here, initialize settings for example. 
 	function enable(){}; // Activate your extension.
 	function disable(){}; // You have to disable everything you have done. 
