@@ -28,7 +28,7 @@ Looking glass can give you some well needed informations too. To open it, Alt+F2
 It is divided into the following tabs: 
 - Evaluator : here you can evaluate random code of javascript, accesing gnome shell objects and libraries. For example, write this in the evaluator and press enter:
  	
-	Main.notify("Hello world")
+		Main.notify("Hello world")
 	
 Also, in the Evaluator tab, you have a "picker" in the left corner. Click into it. Then "pick" random object of the interface of gnome shell to know its name. This is useful if you are trying to know "where" the object you are seeing is in the class hierarchy of the gnome shell and what kind of object it is.
 - Windows : where you can see wich windows are currently active. Pay attention to wmclass. This name let you identify a application inside gnome.
