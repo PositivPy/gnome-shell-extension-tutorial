@@ -1,5 +1,5 @@
 # The Basics
-## Creating and Enabling your extension :
+### Creating and Enabling your extension :
 To create an extension type in a terminal 
 
       gnome-shell-extension-tool --create-extension
@@ -17,7 +17,7 @@ A "Hello World" example should appear in your IDE, gedit or your Browser if all 
 :
 Open the gnome-tweak-tool and enable your extension in the extensions tab.
 
-## Debugging your Extension :
+### Debugging your Extension :
 The main debugging tool is, in a terminal (!!no sudo!!):
 
 	gnome-shell --replace  
@@ -34,7 +34,7 @@ Also, in the Evaluator tab, you have a "picker" in the left corner. Click into i
 - Windows : where you can see wich windows are currently active. Pay attention to wmclass. This name let you identify a application inside gnome.
 - Extensions : will tell you wich extensions are installed and some other information about each extension
 
-## Restarting your shell and Applying changes :
+### Restarting your shell and Applying changes :
 - To apply changes made to your extension, save your file, press Alt-F2 and type r (or restart).
 
 - !! If you crash your shell !!
@@ -52,7 +52,7 @@ and CTRL+ALT+F7 or CTRL+ALT+F8.
 
 
 # Anatomy of an Extension
-## Your extension's folder :
+### Your extension's folder :
 
 	~/.local/share/gnome-shell/extensions/helloWorld@email.com
     
@@ -61,7 +61,7 @@ There are 3 files in this folder :
 - metadata.js : {name, description, uuid, gnome-version } and store the data you need across sessions in JSON format.
 - stylesheet.css : CSS to style your UI components.
 
-## Organizing extension.js :
+### Organizing extension.js :
 -Imports :
 
 	const St = imports.gi.St;  
