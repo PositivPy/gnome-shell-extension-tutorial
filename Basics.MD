@@ -62,7 +62,7 @@ There are 3 files in this folder :
 - metadata.js : {name, description, uuid, gnome-version } and store the data you need across sessions in JSON format.
 - stylesheet.css : CSS to style your UI components.
 
-## extension.js :
+## Organizing extension.js :
 -Imports :
 
 	const St = imports.gi.St;  
