@@ -54,8 +54,8 @@ and CTRL+ALT+F7 or CTRL+ALT+F8.
 
 # Anatomy of an Extension
 ## Your extension's folder :
-First let's have a look at your extensions's folder :
-    ~/.local/share/gnome-shell/extensions/helloWorld@email.com
+
+	~/.local/share/gnome-shell/extensions/helloWorld@email.com
     
 There are 3 files in this folder :
 - extension.js : the javascript code for your extension, the focus of this tutorial.
