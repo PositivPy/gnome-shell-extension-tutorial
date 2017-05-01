@@ -30,17 +30,16 @@ It is divided into the following tabs:
  	
 	Main.notify("Hello world")
 	
-Also, in the Evaluator tab, you have a "picker". Do you see a "cuentagotas" at left corner of looking glass? Click into it. Then you can "pick" random object of the interface of gnome shell and know its name. This is useful if you are trying to know "where" is the object you are seeing in the class hierarchy of gnome shell and wich kind of object is.
+Also, in the Evaluator tab, you have a "picker" in the left corner. Click into it. Then "pick" random object of the interface of gnome shell to know its name. This is useful if you are trying to know "where" the object you are seeing is in the class hierarchy of the gnome shell and what kind of object it is.
 - Windows : where you can see wich windows are currently active. Pay attention to wmclass. This name let you identify a application inside gnome.
-- Memory 
 - Extensions : will tell you wich extensions are installed and some other information about each extension
 
-## Restarting your shell and Applying changes.
--To apply changes made to your extension, save your file, press Alt-F2 and type r (or restart).
+## Restarting your shell and Applying changes :
+- To apply changes made to your extension, save your file, press Alt-F2 and type r (or restart).
 
--!! If you crash your shell !!
+- !! If you crash your shell !!
 Chill. Press Ctrl+Alt+F2. Get a command line.
- Go to your extension's directory,
+Go to your extension's directory,
  	
 	cd  ~/.local/share/gnome-shell/extensions/<yourExtension> 
 and modify your code accordingly.
