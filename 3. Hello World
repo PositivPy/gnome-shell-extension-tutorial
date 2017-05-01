@@ -1,0 +1,109 @@
+# Hello World example in depth
+Here is the annotated hello world example your should get when everytime you create an extension:
+
+/*In this example we will click on a button in the top bar,
+  causing an event that create a text label (hello world), which with some
+  animation, will be decreasing its opacity from 100% to 0%
+ */
+
+
+/*Import St, this is the library that allows you to create UI elements */
+const St = imports.gi.St;
+
+/*Import Main, the instance of the class that have all the UI elements loaded
+  as we have to add to the Main instance our UI elements */
+const Main = imports.ui.main;
+
+/*Import tweener for the animations of the UI elements */
+const Tweener = imports.ui.tweener;
+
+/* Initialising global variables to use as button to click and a text label.*/
+let text, button;
+
+/* Function to call when the label is opacity 0%. As the label remains an
+  UI element, but not visible, we have to delete it explicitily. When
+  the label reaches 0% opacity, we remove it from the Main instance.*/
+function _hideHello() {
+    Main.uiGroup.remove_actor(text);
+    text = null;
+}
+
+function _showHello() {
+        /* If the text is not already present, we create a new UI element using the St library.
+          REFERENCE: http://developer.gnome.org/st/stable/ */
+    if (!text) {
+        text = new St.Label({ style_class: 'helloworld-label', text: "Hello, world!" });
+        Main.uiGroup.add_actor(text);
+    }
+    
+    text.opacity = 255;
+    
+    /* We have to choose the monitor we want to display the hello world label.
+    Here we use the primary monitor*/
+    let monitor = Main.layoutManager.primaryMonitor;
+
+    /*we change the position of the text to the center of the monitor.*/
+    text.set_position(Math.floor(monitor.width / 2 - text.width / 2),
+                      Math.floor(monitor.height / 2 - text.height / 2));
+
+    /* Using tweener for the animations, we set the opacity at 0% after 2 seconds, 
+    with the type of transition easeOutQuad. When this animation is completed, 
+    we execute our function _hideHello.
+     REFERENCE: http://hosted.zeh.com.br/tweener/docs/en-us/ */
+    Tweener.addTween(text,
+                     { opacity: 0,
+                       time: 2,
+                       transition: 'easeOutQuad',
+                       onComplete: _hideHello });
+}
+
+/*This where we initialize our extension.
+ we have to be careful with init(), enable() and disable() and do the right things here.
+ REFERENCE: http://blog.mecheye.net/2012/02/requirements-and-tips-for-getting-your-gnome-shell-extension-approved/
+ */
+function init() {
+        /*We create a button for the top panel. We pass to the constructor a map of properties, properties from St.bin and its
+          parent classes, stWidget. A style class (from the css theming of gnome shell), we make it reactive to mouse clicks, we mark the button as being able to receive keyboard focus 
+          via keyboard navigation. The button will fill the x space, and we don't want to fill the y space, so we set the values true and false respectively.
+          We want the button to be reactive on the hover of a mouse, so we set the value of the track_hover property to true. */
+    button = new St.Bin({ style_class: 'panel-button',
+                          reactive: true,
+                          can_focus: true,
+                          x_fill: true,
+                          y_fill: false,
+                          track_hover: true });
+    /* We create an icon with the system-status-icon icon and give it the name "system-run" */
+    let icon = new St.Icon({ icon_name: 'system-run',
+                             style_class: 'system-status-icon' });
+ ---------------------------------------------------------------------------------------------
+    /*we set the icon as a child of the button. In the structure of actors we have the icon inside the button that is a
+      container. */
+    button.set_child(icon);
+    /*
+      we connect the actor signal "button-press-event" from the button to the funcion _showHello. In this manner,
+      when we press the button, this signal is emitted, and we captured it and execute the _showHello function.
+      You can see all signals in the clutter reference(because we are using St that implements actors from clutter, and
+      this signals comes from the actor class): http://developer.gnome.org/clutter/stable/ClutterActor.html#ClutterActor.signals
+     */
+    button.connect('button-press-event', _showHello);
+}
+
+/*
+  We have to write here our main extension code and the things that actually make works the extension(Add ui elements, signals, etc).
+ */
+function enable() {
+        /*
+          We add the button we created before to the rigth panel of the top panel (where the sound and wifi settings are)
+         */
+    Main.panel._rightBox.insert_child_at_index(button, 0);
+}
+
+/*We have to delete all conections and things from our extensions, to let the system how it is before our extension. So
+ We have to unconnect the signals we connect, we have to delete all UI elements we created, etc.
+ */
+function disable() {
+        /*
+         we remove the button from the right panel
+         */
+    Main.panel._rightBox.remove_child(button);
+}
