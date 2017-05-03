@@ -1,6 +1,6 @@
 
 # Knowing clutter
-
+I think that this should go into a clutter specific documentation.
 ## Introducing clutter
 Clutter is a powerfull C programming API that allows you to create simple but visually appealing and engaging user interfaces. It offers a variety of objects (actors) which can be placed on a canvas (stage) and manipulated by the application or the user. It is therefore a "retained mode" graphics API. Unlike traditional 2D canvas APIs, Clutter allows these actors to move partly in the Z dimension. It is used by gnome-shell to implement the entire GUI.
 
